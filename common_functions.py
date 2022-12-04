@@ -15,8 +15,9 @@ def get_input(day: int, year=2022) -> str:
         raise SystemExit(exc)
 
 
-def solve(day: int, solver: Callable[[str], str]) -> str:
-    filename = f"day-{day}.txt"
+def solve(day: int, solver: Callable[[str], str], filename: str = None) -> str:
+    if not filename:
+        filename = f"day-{day}.txt"
     location = os.path.join(os.getcwd(), filename)
     if os.path.isfile(location):
         file = open(location, "r")
